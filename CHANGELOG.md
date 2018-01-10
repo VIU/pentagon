@@ -8,9 +8,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - `yaml_source` script to replace env-vars.sh
 - Environment variables are now checked in ComponentBase class
+- Defaults to component
+- overwrite to template rendering
 
 ### Removed
 - env-vars.sh script
+- untracked roles directory for ansible
 
 ### Updated 
 - makefile to support `yaml_source` change
