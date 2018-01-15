@@ -17,6 +17,20 @@
         key_material: "{{ item }}"
       with_file: "../../../config/private/{{ aws_key_name }}.pub"
 
+- name: install requirements                                                                                                                                                                                                           
+  hosts: tag_Layer_vpn_public_ip                                                                                                                                                                                                       
+  become: yes                                                                                                                                                                                                                          
+  become_user: root                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                       
+  pre_tasks:                                                                                                                                                                                                                           
+    - include_vars: "{{ item }}"                                                                                                                                                                                                       
+      with_items:                                                                                                                                                                                                                      
+        - ../../account/vars.yml                                                                                                                                                                                                       
+        - env.yml                                                                                                                                                                                                                      
+  tasks:                                                                                                                                                                                                                               
+   - name: Install python                                                                                                                                                                                                              
+     apt: name=python state=latest      
+
 - name:  set up vpn prerequisites
   hosts: localhost
   connection: local
